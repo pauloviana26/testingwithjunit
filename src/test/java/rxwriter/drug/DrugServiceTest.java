@@ -1,7 +1,9 @@
 package rxwriter.drug;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.*;
 import rxwriter.drug.database.DrugRecord;
 import rxwriter.drug.database.DrugSource;
 
@@ -28,6 +30,7 @@ class DrugServiceTest implements DrugSource {
         assertEquals("aspirin", foundDrugs.get(1).drugName());
     }
 
+//    @Disabled("until guard clause implemented")
     @Test
     void throwsExceptionOnEmptyStartsWith() {
         Exception thrown = assertThrows(IllegalArgumentException.class, () -> drugService.findDrugsStartingWith(" "));
